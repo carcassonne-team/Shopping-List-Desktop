@@ -1,0 +1,12 @@
+<html fxFill class="mat-app-background">
+<body fxLayout="column wrap">
+<mat-toolbar fxFlex.gt-xs="10" fxFlex.gt-lg="5" fxLayoutAlign="space-between center" color="primary">
+  Shopping List
+  <button mat-stroked-button (click)="onLogout()">Logout</button>
+</mat-toolbar>
+<div fxFlex.gt-xs="90" fxFlex.gt-lg="95" fxLayout="row">
+  <app-menu fxFlex.gt-xs="20" fxFlex.gt-lg="10"></app-menu>
+  <app-dashboard-content fxFlex.gt-xs="80" fxFlex.gt-lg="90"></app-dashboard-content>
+</div>
+</body>
+</html>

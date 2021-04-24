@@ -1,0 +1,42 @@
+<mat-card fxLayout="column">
+  <h1>Sign up</h1>
+  <div fxLayout="row" fxLayoutGap="16px">
+    <div fxLayout="column">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your name</mat-label>
+        <input matInput [(ngModel)]="signUpRequest.name">
+        <button mat-icon-button matSuffix disabled>
+          <mat-icon></mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput [(ngModel)]="signUpRequest.email">
+        <button mat-icon-button matSuffix disabled>
+          <mat-icon></mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div fxLayout="column">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="signUpRequest.password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Confirm your password</mat-label>
+        <input matInput [type]="hide ? 'password-confirmation' : 'text'"
+               [(ngModel)]="signUpRequest.password_confirmation">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <button mat-stroked-button color="accent" (click)="onRegister()">Sign up</button>
+    </div>
+  </div>
+</mat-card>
+<br>
