@@ -13,11 +13,10 @@ export class ListService {
   ) {
   }
 
-  token: string | null = '';
+  token = localStorage.getItem('token');
   baseURL = 'http://projekt.shoplist.site:8080/api/';
 
   async getLists(): Promise<any> {
-    this.token = localStorage.getItem('token');
     await this.http.get(this.baseURL + 'lists', {headers: {Authorization: `Bearer ${this.token}`}}).toPromise()
       .then(
         response => {

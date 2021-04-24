@@ -13,6 +13,7 @@ import {SnackBar} from './helpers/snack-bar.helper';
 import {MenuComponent} from './components/elements/menu/menu.component';
 import {DashboardContentComponent} from './components/elements/dashboard-content/dashboard-content.component';
 import { CreateListComponent } from './components/dialogs/create-list/create-list.component';
+import { JoinListComponent } from './components/dialogs/join-list/join-list.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CreateListComponent } from './components/dialogs/create-list/create-lis
     MenuComponent,
     DashboardContentComponent,
     CreateListComponent,
+    JoinListComponent,
   ],
   imports: [
     BrowserModule,
