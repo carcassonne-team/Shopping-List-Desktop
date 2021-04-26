@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ListCreateRequest} from '../../../models/list-create-request';
+import {ListCreateRequest} from '../../../models/ListCreateRequest';
 import {MatDialog} from '@angular/material/dialog';
 import {ListService} from '../../../services/list.service';
 

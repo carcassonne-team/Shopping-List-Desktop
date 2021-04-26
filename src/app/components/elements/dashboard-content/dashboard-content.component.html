@@ -1,9 +1,12 @@
 <div fxLayout="column">
-  <mat-toolbar  color="accent">
-
+  <mat-toolbar color="accent" fxLayoutAlign="space-between center">
+    <h1>{{list.name}}</h1>
+    <button *ngIf="!checkIfChosen()" mat-icon-button (click)="onBin()">
+      <mat-icon color="primary">delete</mat-icon>
+    </button>
   </mat-toolbar>
-    <div fxLayoutAlign="center center">
-      <p>Choose a list to see it's content here.</p>
-    </div>
+  <div fxLayoutAlign="center center">
+    <p *ngIf="checkIfChosen()">Choose a list to see it's content here.</p>
+  </div>
 </div>
 

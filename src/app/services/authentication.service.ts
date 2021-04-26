@@ -3,8 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {SnackBar} from '../helpers/snack-bar.helper';
-import {SignInRequest} from '../models/sign-in-request';
-import {SignUpRequest} from '../models/sign-up-request';
+import {SignInRequest} from '../models/SignInRequest';
+import {SignUpRequest} from '../models/SignUpRequest';
 
 @Injectable({providedIn: 'root'})
 export class AuthenticationService {

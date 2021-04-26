@@ -4,7 +4,7 @@ const path = require("path");
 
 let mainWindow
 
-function createWindow () {
+function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1980,
     height: 1080,
@@ -15,8 +15,7 @@ function createWindow () {
   })
 
 
-
-  mainWindow.loadURL(path.join(__dirname,'dist/index.html'))
+  mainWindow.loadURL(path.join(__dirname, 'dist/index.html'))
 
   mainWindow.removeMenu()
 
@@ -42,12 +41,13 @@ ipcMain.on('openModal', (event, arg) => {
   openModal()
 })
 
-function openModal(){
-  const { BrowserWindow } = require('electron');
+function openModal() {
+  const {BrowserWindow} = require('electron');
   let modal = new BrowserWindow({
     parent: mainWindow,
     modal: true,
-    show: false })
+    show: false
+  })
   modal.loadURL('https://www.sitepoint.com')
   modal.once('ready-to-show', () => {
     modal.show()

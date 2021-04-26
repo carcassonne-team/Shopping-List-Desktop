@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {SignInRequest} from "../../../models/sign-in-request";
-import {AuthenticationService} from "../../../services/authentication.service";
+import {SignInRequest} from '../../../models/SignInRequest';
+import {AuthenticationService} from '../../../services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -8,8 +8,8 @@ import {AuthenticationService} from "../../../services/authentication.service";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  hide = true
-  signInRequest: SignInRequest = new SignInRequest("", "")
+  hide = true;
+  signInRequest: SignInRequest = new SignInRequest('', '');
 
   constructor(private authenticationService: AuthenticationService) {
   }
@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
 
   }
 
-  onLogin() {
-    this.authenticationService.logIn(this.signInRequest)
+  onLogin(): void {
+    this.authenticationService.logIn(this.signInRequest);
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SignUpRequest} from "../../../models/sign-up-request";
+import {SignUpRequest} from "../../../models/SignUpRequest";
 import {AuthenticationService} from "../../../services/authentication.service";
 
 @Component({

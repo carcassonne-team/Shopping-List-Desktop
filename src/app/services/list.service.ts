@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {SnackBar} from '../helpers/snack-bar.helper';
-import {ListCreateRequest} from '../models/list-create-request';
+import {ListCreateRequest} from '../models/ListCreateRequest';
 import {MatDialog} from '@angular/material/dialog';
+import {ListGetResponse} from '../models/ListGetResponse';
 
 @Injectable({providedIn: 'root'})
 export class ListService {
@@ -16,17 +17,18 @@ export class ListService {
   token = localStorage.getItem('token');
   baseURL = 'http://projekt.shoplist.site:8080/api/';
 
-  async getLists(): Promise<any> {
+  async getLists(): Promise<Array<ListGetResponse>> {
+    let lists: Array<ListGetResponse> = [];
     await this.http.get(this.baseURL + 'lists', {headers: {Authorization: `Bearer ${this.token}`}}).toPromise()
       .then(
         response => {
-          console.log(response);
-          return response;
+          lists = response as Array<ListGetResponse>;
         },
         error => {
           this.snackBar.open(error.message, 'Close');
         }
       );
+    return lists;
   }
 
   async postList(listCreateRequest: ListCreateRequest): Promise<void> {
@@ -35,6 +37,7 @@ export class ListService {
         response => {
           console.log(response);
           this.matDialog.closeAll();
+          location.reload();
         },
         error => {
           this.snackBar.open(error.message, 'Close');

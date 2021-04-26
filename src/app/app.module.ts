@@ -14,6 +14,8 @@ import {MenuComponent} from './components/elements/menu/menu.component';
 import {DashboardContentComponent} from './components/elements/dashboard-content/dashboard-content.component';
 import { CreateListComponent } from './components/dialogs/create-list/create-list.component';
 import { JoinListComponent } from './components/dialogs/join-list/join-list.component';
+import {ListViewService} from './services/list-view.service';
+import { DeleteListComponent } from './components/dialogs/delete-list/delete-list.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { JoinListComponent } from './components/dialogs/join-list/join-list.comp
     DashboardContentComponent,
     CreateListComponent,
     JoinListComponent,
+    DeleteListComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { JoinListComponent } from './components/dialogs/join-list/join-list.comp
     FlexModule,
     HttpClientModule,
   ],
-  providers: [SnackBar],
+  providers: [SnackBar, ListViewService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
