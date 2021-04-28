@@ -23,9 +23,11 @@ export class ListService {
       .then(
         response => {
           lists = response as Array<ListGetResponse>;
-        },
+        }
+      )
+      .catch(
         error => {
-          this.snackBar.open(error.message, 'Close');
+          this.snackBar.open('List loading failed,', 'Close');
         }
       );
     return lists;
@@ -38,9 +40,26 @@ export class ListService {
           console.log(response);
           this.matDialog.closeAll();
           location.reload();
-        },
+        }
+      )
+      .catch(
         error => {
-          this.snackBar.open(error.message, 'Close');
+          this.snackBar.open('List creating failed.', 'Close');
+        }
+      );
+  }
+
+  deleteList(list_id: string): void {
+    this.http.delete(this.baseURL + 'lists/' + list_id, {headers: {Authorization: `Bearer ${this.token}`}}).toPromise()
+      .then(
+        response => {
+          console.log(response);
+          location.reload();
+        }
+      )
+      .catch(
+        error => {
+          this.snackBar.open('List deleting failed.', 'Close');
         }
       );
   }

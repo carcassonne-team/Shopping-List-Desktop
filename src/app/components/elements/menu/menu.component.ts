@@ -26,7 +26,6 @@ export class MenuComponent implements OnInit {
     this.listService.getLists()
       .then(response => {
           this.lists = response;
-          console.log(this.lists);
           console.log(response);
         }
       );
@@ -44,5 +43,11 @@ export class MenuComponent implements OnInit {
     this.listViewService.changeListData(list);
   }
 
+  onCreateProduct(): void {
 
+  }
+
+  onCreateCategory(): void {
+
+  }
 }

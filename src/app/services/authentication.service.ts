@@ -26,7 +26,7 @@ export class AuthenticationService {
           this.router.navigate(['d']);
         },
         (error: any) => {
-          this.snackBar.open(error.message, 'Close');
+          this.snackBar.open('Sign in failed, check credentials.', 'Close');
         }
       );
   }
@@ -38,7 +38,7 @@ export class AuthenticationService {
           this.snackBar.open('Successfully signed up!', 'Close');
         },
         (error: any) => {
-          this.snackBar.open(error.message, 'Close');
+          this.snackBar.open('Sign up failed, check credentials.', 'Close');
         }
       );
   }

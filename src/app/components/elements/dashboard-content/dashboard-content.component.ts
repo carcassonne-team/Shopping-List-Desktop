@@ -4,6 +4,7 @@ import {ListGetResponse} from '../../../models/ListGetResponse';
 import {MatDateFormats} from '@angular/material/core';
 import {MatDialog} from '@angular/material/dialog';
 import {DeleteListComponent} from '../../dialogs/delete-list/delete-list.component';
+import {AddProductToListComponent} from '../../dialogs/add-product-to-list/add-product-to-list.component';
 
 @Component({
   selector: 'app-dashboard-content',
@@ -21,7 +22,10 @@ export class DashboardContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.listViewService.currentListData.subscribe(
-      data => this.list = data
+      data => {
+        this.list = data;
+        console.log(data);
+      }
     );
   }
 
@@ -31,6 +35,10 @@ export class DashboardContentComponent implements OnInit {
 
   onBin(): void {
     this.matDialog.open(DeleteListComponent);
+  }
+
+  onAdd(): void {
+    this.matDialog.open(AddProductToListComponent);
   }
 }
 

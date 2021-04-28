@@ -16,6 +16,9 @@ import { CreateListComponent } from './components/dialogs/create-list/create-lis
 import { JoinListComponent } from './components/dialogs/join-list/join-list.component';
 import {ListViewService} from './services/list-view.service';
 import { DeleteListComponent } from './components/dialogs/delete-list/delete-list.component';
+import { AddProductToListComponent } from './components/dialogs/add-product-to-list/add-product-to-list.component';
+import { CreateProductComponent } from './components/dialogs/create-product/create-product.component';
+import { CreateCategoryComponent } from './components/dialogs/create-category/create-category.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { DeleteListComponent } from './components/dialogs/delete-list/delete-lis
     CreateListComponent,
     JoinListComponent,
     DeleteListComponent,
+    AddProductToListComponent,
+    CreateProductComponent,
+    CreateCategoryComponent,
   ],
   imports: [
     BrowserModule,

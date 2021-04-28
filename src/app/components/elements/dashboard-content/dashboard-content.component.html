@@ -1,12 +1,27 @@
 <div fxLayout="column">
-  <mat-toolbar color="accent" fxLayoutAlign="space-between center">
+  <mat-toolbar *ngIf="!checkIfChosen()" color="accent" fxLayoutAlign="space-between center">
     <h1>{{list.name}}</h1>
-    <button *ngIf="!checkIfChosen()" mat-icon-button (click)="onBin()">
-      <mat-icon color="primary">delete</mat-icon>
-    </button>
+    <div fxLayoutGap="16px">
+      <button *ngIf="!checkIfChosen()" mat-raised-button (click)="onAdd()">
+        Add product
+        <mat-icon color="primary">add</mat-icon>
+      </button>
+      <button *ngIf="!checkIfChosen()" mat-raised-button (click)="onBin()">
+        Delete list
+        <mat-icon color="primary">delete</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+  <mat-toolbar *ngIf="!checkIfChosen()" fxLayoutAlign="space-between center">
+    Share code: {{list.share_code}}
   </mat-toolbar>
   <div fxLayoutAlign="center center">
-    <p *ngIf="checkIfChosen()">Choose a list to see it's content here.</p>
+    <div *ngFor="let product of list.list_content">
+      <div>{{product.name}}</div>
+    </div>
   </div>
+</div>
+<div fxFill fxLayout="column" *ngIf="checkIfChosen()" fxLayoutAlign="center center">
+    <p>Choose a list to see it's content here.</p>
 </div>
 
