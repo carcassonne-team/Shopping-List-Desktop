@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {ProductService} from '../../../services/product.service';
 
 @Component({
   selector: 'app-create-category',
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-category.component.scss']
 })
 export class CreateCategoryComponent implements OnInit {
+  name = '';
 
-  constructor() { }
+  constructor(
+    private matDialog: MatDialog,
+    private productService: ProductService
+  ) {
+  }
 
   ngOnInit(): void {
   }
 
+  onCreate(): void {
+    console.log(this.name);
+    this.productService.postCategory(this.name);
+  }
+
+  onClose(): void {
+    this.matDialog.closeAll();
+  }
 }

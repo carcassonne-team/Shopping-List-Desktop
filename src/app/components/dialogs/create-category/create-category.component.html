@@ -1,1 +1,11 @@
-<p>create-category works!</p>
+<div fxLayout="column" fxLayoutGap="8px" fxLayoutAlign="center center">
+  <h1>Create new category</h1>
+  <mat-form-field>
+    <mat-label>Enter name for the category</mat-label>
+    <input matInput [(ngModel)]="name">
+  </mat-form-field>
+  <div fxLayoutGap="16px" fxLayout="row">
+    <button fxLayoutAlign="center" mat-raised-button (click)="onCreate()" type="submit">Create</button>
+    <button fxLayoutAlign="center" mat-raised-button (click)="onClose()">Cancel</button>
+  </div>
+</div>

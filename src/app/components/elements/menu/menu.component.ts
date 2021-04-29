@@ -5,6 +5,8 @@ import {CreateListComponent} from '../../dialogs/create-list/create-list.compone
 import {JoinListComponent} from '../../dialogs/join-list/join-list.component';
 import {ListGetResponse} from '../../../models/ListGetResponse';
 import {ListViewService} from '../../../services/list-view.service';
+import {CreateCategoryComponent} from '../../dialogs/create-category/create-category.component';
+import {CreateProductComponent} from '../../dialogs/create-product/create-product.component';
 
 @Component({
   selector: 'app-menu',
@@ -32,22 +34,22 @@ export class MenuComponent implements OnInit {
   }
 
   onCreate(): void {
-    this.matDialog.open(CreateListComponent);
+    this.matDialog.open(CreateListComponent, {});
   }
 
   onJoin(): void {
-    this.matDialog.open(JoinListComponent);
+    this.matDialog.open(JoinListComponent, {});
+  }
+
+  onCreateProduct(): void {
+    this.matDialog.open(CreateProductComponent, {});
+  }
+
+  onCreateCategory(): void {
+    this.matDialog.open(CreateCategoryComponent, {});
   }
 
   onList(list: ListGetResponse): void {
     this.listViewService.changeListData(list);
-  }
-
-  onCreateProduct(): void {
-
-  }
-
-  onCreateCategory(): void {
-
   }
 }
