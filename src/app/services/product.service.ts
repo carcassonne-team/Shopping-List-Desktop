@@ -15,9 +15,9 @@ export class ProductService {
   token = localStorage.getItem('token');
   baseURL = 'http://projekt.shoplist.site:8080/api/';
 
-  getProducts(): object {
+  async getProductsOfCategory(id: string): Promise<object> {
     let products: object = [];
-    this.http.get(this.baseURL + 'products', {headers: {Authorization: `Bearer ${this.token}`}}).toPromise()
+    await this.http.get(this.baseURL + 'products/' + id, {headers: {Authorization: `Bearer ${this.token}`}}).toPromise()
       .then(response => {
         products = response;
       })

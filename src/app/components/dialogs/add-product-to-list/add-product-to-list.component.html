@@ -1,5 +1,21 @@
 <div fxLayout="column" fxLayoutGap="8px" fxLayoutAlign="center center">
   <h1>Create new list</h1>
+  <mat-form-field>
+    <mat-label>Choose category</mat-label>
+    <mat-select [(ngModel)]="id">
+      <mat-option *ngFor="let category of categories" [value]="category.id" (click)="onSelect()">
+        {{category.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field disabled="disabled">
+    <mat-label>Choose product</mat-label>
+    <mat-select [(ngModel)]="productID" required>
+      <mat-option *ngFor="let product of products" [value]="product.id" (click)="onSelect()">
+        {{product.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
   <div fxLayoutGap="16px" fxLayout="row">
     <button fxLayoutAlign="center" mat-raised-button (click)="onAdd()" type="submit">Add</button>
     <button fxLayoutAlign="center" mat-raised-button (click)="onClose()">Cancel</button>

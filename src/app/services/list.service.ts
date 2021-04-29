@@ -63,4 +63,23 @@ export class ListService {
         }
       );
   }
+
+  postProductToList(product_list_id: string, product_id: string): void {
+    this.http.post(
+      this.baseURL + 'list_content/add',
+      {product_list_id, product_id},
+      {headers: {Authorization: `Bearer ${this.token}`}}
+    ).toPromise()
+      .then(
+        response => {
+          console.log(response);
+          location.reload();
+        }
+      )
+      .catch(
+        error => {
+          this.snackBar.open('Adding product to list failed.', 'Close');
+        }
+      );
+  }
 }
