@@ -19,8 +19,6 @@ function createWindow() {
 
   mainWindow.removeMenu()
 
-  // Open the DevTools.
-
   mainWindow.on('closed', function () {
     mainWindow = null
   })

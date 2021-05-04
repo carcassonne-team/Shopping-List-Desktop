@@ -7,6 +7,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthenticationService} from '../../../services/authentication.service';
 import {ListViewService} from '../../../services/list-view.service';
+import {ListService} from '../../../services/list.service';
 
 describe('DashboardContentComponent', () => {
   let component: DashboardContentComponent;
@@ -15,7 +16,7 @@ describe('DashboardContentComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MaterialModule, HttpClientModule, RouterTestingModule, BrowserAnimationsModule],
-      providers: [ListViewService]
+      providers: [ListViewService, ListService]
     })
     .compileComponents();
   });

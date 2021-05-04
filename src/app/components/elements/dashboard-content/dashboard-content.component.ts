@@ -5,6 +5,7 @@ import {MatDateFormats} from '@angular/material/core';
 import {MatDialog} from '@angular/material/dialog';
 import {DeleteListComponent} from '../../dialogs/delete-list/delete-list.component';
 import {AddProductToListComponent} from '../../dialogs/add-product-to-list/add-product-to-list.component';
+import {ListService} from '../../../services/list.service';
 
 @Component({
   selector: 'app-dashboard-content',
@@ -14,7 +15,8 @@ import {AddProductToListComponent} from '../../dialogs/add-product-to-list/add-p
 export class DashboardContentComponent implements OnInit {
   constructor(
     private listViewService: ListViewService,
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private listService: ListService,
   ) {
   }
 
@@ -24,7 +26,7 @@ export class DashboardContentComponent implements OnInit {
     this.listViewService.currentListData.subscribe(
       data => {
         this.list = data;
-        console.log(data);
+        console.log('current list: ', data);
       }
     );
   }
@@ -39,6 +41,10 @@ export class DashboardContentComponent implements OnInit {
 
   onAdd(): void {
     this.matDialog.open(AddProductToListComponent);
+  }
+
+  onDelete(id: string): void {
+    this.listService.deleteProductFromList(id);
   }
 }
 

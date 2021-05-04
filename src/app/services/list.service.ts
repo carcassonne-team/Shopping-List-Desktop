@@ -82,4 +82,19 @@ export class ListService {
         }
       );
   }
+
+  deleteProductFromList(id: string): void {
+  this.http.delete(this.baseURL + 'list_content/' + id, {headers: {Authorization: `Bearer ${this.token}`}}).toPromise()
+    .then(
+      response => {
+        console.log(response);
+        location.reload()
+      }
+    )
+    .catch(
+      error => {
+        this.snackBar.open('Deleting product from list failed.', 'Close');
+      }
+    );
+  }
 }
