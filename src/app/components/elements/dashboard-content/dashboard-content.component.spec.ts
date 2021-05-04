@@ -1,6 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardContentComponent } from './dashboard-content.component';
+import {MaterialModule} from '../../../material.module';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterTestingModule} from '@angular/router/testing';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AuthenticationService} from '../../../services/authentication.service';
+import {ListViewService} from '../../../services/list-view.service';
 
 describe('DashboardContentComponent', () => {
   let component: DashboardContentComponent;
@@ -8,7 +14,8 @@ describe('DashboardContentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DashboardContentComponent ]
+      imports: [MaterialModule, HttpClientModule, RouterTestingModule, BrowserAnimationsModule],
+      providers: [ListViewService]
     })
     .compileComponents();
   });
