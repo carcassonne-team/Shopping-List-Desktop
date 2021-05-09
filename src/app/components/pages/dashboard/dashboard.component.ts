@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -6,12 +6,15 @@ import {Router} from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router) {
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
   }
 
   onLogout(): void {

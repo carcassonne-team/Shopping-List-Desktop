@@ -13,7 +13,7 @@ export class ProductService {
   }
 
   token = localStorage.getItem('token');
-  baseURL = 'http://projekt.shoplist.site:8080/api/';
+  baseURL = 'https://projekt.shoplist.site/api/';
 
   async getProductsOfCategory(id: string): Promise<object> {
     let products: object = [];

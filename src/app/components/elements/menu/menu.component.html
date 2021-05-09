@@ -1,16 +1,16 @@
 <div fxFill fxLayout="column" fxLayoutGap="2px">
-  <mat-card fxLayout="column" fxFlex="12.5" fxLayoutGap="8px">
+  <mat-card fxLayout="column" class="block" fxLayoutGap="8px">
     <button mat-raised-button color="primary" (click)="onCreate()">Create List</button>
-    <button mat-raised-button color="primary" (click)="onJoin()">Join List</button>
+    <button mat-raised-button color="primary" disabled (click)="onJoin()">Join List</button>
   </mat-card>
-  <mat-card fxLayout="column" fxFlex="12.5" fxLayoutGap="8px">
+  <mat-card fxLayout="column" class="block" fxLayoutGap="8px">
     <button mat-raised-button color="primary" (click)="onCreateProduct()">Create Product</button>
     <button mat-raised-button color="primary" (click)="onCreateCategory()">Create Category</button>
   </mat-card>
   <mat-card fxLayout="column" fxFlex="75" fxLayoutGap="8px">
     <h1 fxFlexAlign="center">Lists:</h1>
     <div *ngFor="let list of lists" fxLayoutAlign="center">
-      <button mat-raised-button color="accent" (click)="onList(list)" >{{list.name}}</button>
+      <button mat-raised-button color="accent" (click)="onList(list)">{{list.name}}</button>
     </div>
   </mat-card>
 </div>

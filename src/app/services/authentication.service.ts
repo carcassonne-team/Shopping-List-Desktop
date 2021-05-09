@@ -15,7 +15,7 @@ export class AuthenticationService {
   ) {
   }
 
-  baseURL = 'http://projekt.shoplist.site:8080/api/';
+  baseURL = 'https://projekt.shoplist.site/api/';
 
   async logIn(signInRequest: SignInRequest): Promise<any> {
     await this.http.post(this.baseURL + 'auth/login', signInRequest).toPromise()

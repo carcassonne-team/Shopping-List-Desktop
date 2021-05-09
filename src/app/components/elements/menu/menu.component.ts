@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ListService} from '../../../services/list.service';
 import {MatDialog} from '@angular/material/dialog';
 import {CreateListComponent} from '../../dialogs/create-list/create-list.component';
@@ -13,7 +13,7 @@ import {CreateProductComponent} from '../../dialogs/create-product/create-produc
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, OnDestroy {
   constructor(
     private listService: ListService,
     private matDialog: MatDialog,
@@ -31,6 +31,9 @@ export class MenuComponent implements OnInit {
           console.log(response);
         }
       );
+  }
+
+  ngOnDestroy(): void {
   }
 
   onCreate(): void {

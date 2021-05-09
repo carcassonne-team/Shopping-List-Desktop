@@ -1,7 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ListViewService} from '../../../services/list-view.service';
 import {ListGetResponse} from '../../../models/ListGetResponse';
-import {MatDateFormats} from '@angular/material/core';
 import {MatDialog} from '@angular/material/dialog';
 import {DeleteListComponent} from '../../dialogs/delete-list/delete-list.component';
 import {AddProductToListComponent} from '../../dialogs/add-product-to-list/add-product-to-list.component';
@@ -12,7 +11,7 @@ import {ListService} from '../../../services/list.service';
   templateUrl: './dashboard-content.component.html',
   styleUrls: ['./dashboard-content.component.scss']
 })
-export class DashboardContentComponent implements OnInit {
+export class DashboardContentComponent implements OnInit, OnDestroy {
   constructor(
     private listViewService: ListViewService,
     private matDialog: MatDialog,
@@ -29,6 +28,9 @@ export class DashboardContentComponent implements OnInit {
         console.log('current list: ', data);
       }
     );
+  }
+
+  ngOnDestroy(): void {
   }
 
   checkIfChosen(): boolean {

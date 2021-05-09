@@ -15,7 +15,7 @@ export class ListService {
   }
 
   token = localStorage.getItem('token');
-  baseURL = 'http://projekt.shoplist.site:8080/api/';
+  baseURL = 'https://projekt.shoplist.site/api/';
 
   async getLists(): Promise<Array<ListGetResponse>> {
     let lists: Array<ListGetResponse> = [];
@@ -55,6 +55,7 @@ export class ListService {
         response => {
           console.log(response);
           location.reload();
+          this.snackBar.open('List deleted.', 'Close');
         }
       )
       .catch(
@@ -72,6 +73,7 @@ export class ListService {
     ).toPromise()
       .then(
         response => {
+          this.snackBar.open('Added product to list.', 'Close');
           console.log(response);
           location.reload();
         }
@@ -88,7 +90,8 @@ export class ListService {
     .then(
       response => {
         console.log(response);
-        location.reload()
+        location.reload();
+        this.snackBar.open('Deleted product from list.', 'Close');
       }
     )
     .catch(
